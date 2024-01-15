@@ -16,7 +16,9 @@ struct ContentView: View {
                 ZStack {
                     CustomVideoPlayer(player: viewModel.player)
                         .onTapGesture {
-                            showPlayerControls.toggle()
+                            withAnimation {
+                                showPlayerControls.toggle()
+                            }
                         }
                     HStack {
                         Button {
