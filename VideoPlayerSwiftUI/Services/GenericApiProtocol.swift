@@ -34,7 +34,7 @@ extension GenericApi {
  }
 }
 
-enum ApiError: Error {
+enum ApiError: LocalizedError {
  case requestFailed(description: String)
  case invalidData
  case responseUnsuccessful(description: String)
@@ -43,7 +43,7 @@ enum ApiError: Error {
  case failedSerialization
  case noInternet
 
- var customDescription: String {
+ var errorDescription: String {
   switch self {
   case let .requestFailed(description): return "Request Failed: \(description)"
   case .invalidData: return "Invalid Data)"
