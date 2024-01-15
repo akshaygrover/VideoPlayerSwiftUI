@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = VideoViewModel()
+    @State private var showPlayerControls: Bool = true
     var body: some View {
         NavigationStack {
             VStack {
                 ZStack {
                     CustomVideoPlayer(player: viewModel.player)
+                        .onTapGesture {
+                            showPlayerControls.toggle()
+                        }
                     HStack {
                         Button {
                             viewModel.playPreviousVideo()
@@ -34,6 +38,7 @@ struct ContentView: View {
                                 .scaledToFit()
                         }
                     }
+                    .opacity(showPlayerControls ? 1 : 0)
                     .padding()
                     
                 }
