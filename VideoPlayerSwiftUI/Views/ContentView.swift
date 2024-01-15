@@ -20,14 +20,12 @@ struct ContentView: View {
                         } label: {
                             Image("previous")
                                 .scaledToFit()
-                            
                         }
                         Button {
                             viewModel.handlePlayPauseVideo()
                         } label: {
                             Image( viewModel.isPlaying ? "pause" : "play")
                                 .scaledToFit()
-                            
                         }
                         Button {
                             viewModel.playNextVideo()
@@ -51,8 +49,6 @@ struct ContentView: View {
                                 .font(.headline)
                             Text("Published: \(currentVideo.publishedAt.formatted())")
                                 .font(.title3)
-                            
-                            
                         }
                         .padding()
                     }
@@ -63,7 +59,6 @@ struct ContentView: View {
             })
             .navigationTitle("Video Player")
             .navigationBarTitleDisplayMode(.inline)
-            
         }
         .task {
             await viewModel.fetchVideos()
